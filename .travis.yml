@@ -9,12 +9,12 @@ script:
   - docker run -e CI=true ravi/react-test npm run test -- --coverage
 
 after_success:
-  - docker build -t ravi/multi-client ./client
-  - docker build -t ravi/multi-nginx ./nginx
-  - docker build -t ravi/multi-server ./server
-  - docker build -t ravi/multi-worker ./worker
+  - docker build -t ravinder112134/multi-client ./client
+  - docker build -t ravinder112134/multi-nginx ./nginx
+  - docker build -t ravinder112134/multi-server ./server
+  - docker build -t ravinder112134/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push ravi/multi-client
-  - docker push ravi/multi-nginx
-  - docker push ravi/multi-server
-  - docker push ravi/multi-worker
+  - docker push ravinder112134/multi-client
+  - docker push ravinder112134/multi-nginx
+  - docker push ravinder112134/multi-server
+  - docker push ravinder112134/multi-worker
